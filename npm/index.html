@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Site d'exemple pour Hagreed</title>
+</head>
+<body>
+<header>
+    <h1>Site en ligne</h1>
+</header>
+<form>
+    <label>
+        Champ 1
+        <input placeholder="champ 1" name="champ1"/>
+    </label>
+    <label>
+        Champ 2
+        <input placeholder="champ 1" name="champ1"/>
+    </label>
+    <label>
+        Champ 3
+        <input placeholder="champ 1" name="champ1"/>
+    </label>
+
+
+    <!-- La <div> contenant les finalités du formulaire -->
+    <div class="hagreedForm" data-hagreed-id="contact"></div>
+
+    <button type="submit">Valider</button>
+</form>
+<footer>
+    <!-- Le lien pour ouvrir le bandeau des cookies -->
+    <a href="javascript:hagreed.displayBanner();">Gestion des cookies</a>
+</footer>
+<!-- La <div> contenant les infos des cookies -->
+<div id="hagreed" class="hagreed"></div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Site d'exemple pour Hagreed via CDN</title>
+    <!-- Le style Hagreed via CDN -->
+    <link rel="stylesheet" href="https://unpkg.com/@tizy/hagreed@latest/style.css" type="text/css" media="all"/>
+    <!-- Le style de votre site (facultatif) -->
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="all"/>
+    <!-- Le JS de Hagreed via CDN -->
+    <script type="text/javascript" src="https://unpkg.com/@tizy/hagreed@latest/hagreed.js"></script>
+    <!-- Le JS de votre site -->
+    <script type="text/javascript">
+        const hagreed = new window.Hagreed.default("insert-your-token-here", {
+            lang: 'fr', // Affiche la langue par défaut en français
+            forceLang: false // On ne force pas la langue française si l'utilisateur à sa langue de navigateur en anglais
+        });
+        hagreed.cookiesList = [
+            {
+                id: "ga", // Renseignez ici un identifiant unique de cookie, peu importe ce que c’est tant que ça ne contient que des caractères alphanumériques et que c’est unique
+                name: "Google Analytics", // Renseignez ici le nom du cookie ou du service en question, c’est un label qui sera affiché au client et qui doit être clair et explicite
+                description: "Nous utilisons ce genre de cookie pour blablabla et c’est utile", // Ce champ est facultatif et permet d’expliquer en quoi sert ce cookie.
+                link: "https://marketingplatform.google.com/about/analytics/terms/fr/", // Ce champ est facultatif et permet de rediriger l’utilisateur vers la politique du service en question
+                category: window.Hagreed.CategoryEnum.NECESSARY // Déterminez de quelle nature est ce cookie : NECESSARY ? STATISTIQUES ? MARKETING ? DIVERS ? PREFERENCES ?
+            },
+        ];
+        hagreed.consentsFormList = [{
+            id: 'contact', // L'id du formulaire
+            title: 'Finalité des traitements 😊', // Le titre
+            description: 'Les informations recueillies sont enregistrées ...', // La description
+            purposes: [
+                {
+                    slug: 'mailjet', // Le slug d'une finalité
+                    name: 'Les informations recueillies sont enregistrées dans un fichier informatisé par Tizy pour la gestion des demandes de contact.', // Le nom de la finalité
+                    mandatory: true, // Si elle est facultative ou obligatoire
+                    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <a href="#">Test de lien</a>', // La description
+                }, {
+                    slug: 'facebook',
+                    name: 'Les informations recueillies sont enregistrées dans un fichier informatisé par Tizy pour la gestion des demandes de contact.',
+                    mandatory: false,
+                    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                }
+            ]
+        }];
+        hagreed.timeout = 5000;
+        hagreed.init();
+    </script>
+</head>
+<body>
+<header>
+    <h1>Site en ligne</h1>
+</header>
+<form>
+    <label>
+        Champ 1
+        <input placeholder="champ 1" name="champ1"/>
+    </label>
+    <label>
+        Champ 2
+        <input placeholder="champ 1" name="champ1"/>
+    </label>
+    <label>
+        Champ 3
+        <input placeholder="champ 1" name="champ1"/>
+    </label>
+
+
+    <!-- La <div> contenant les finalités du formulaire -->
+    <div class="hagreedForm" data-hagreed-id="contact"></div>
+
+    <button type="submit">Valider</button>
+</form>
+<footer>
+    <!-- Le lien pour ouvrir le bandeau des cookies -->
+    <a href="javascript:hagreed.displayBanner();">Gestion des cookies</a>
+</footer>
+<!-- La <div> contenant les infos des cookies -->
+<div id="hagreed" class="hagreed"></div>
+</body>
+</html>
