@@ -1,4 +1,4 @@
-# Examples of Hagreed installations
+# Examples of Hagreed installation
 
 Hagreed is a GDPR (General Data Protection Regulation) compliance support tool
 
