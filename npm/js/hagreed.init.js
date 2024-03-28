@@ -1,4 +1,8 @@
-const hagreed = new window.Hagreed.default("insert-your-token-here", {
+import '../css/style.css';
+import '@tizy/hagreed/style.css';
+import Hagreed, {CategoryEnum} from "@tizy/hagreed";
+
+const hagreed = new Hagreed("insert-your-token-here", {
     lang: 'fr', // Affiche la langue par défaut en français
     forceLang: false // On ne force pas la langue française si l'utilisateur à sa langue de navigateur en anglais
 });
@@ -9,7 +13,7 @@ hagreed.cookiesList = [
         name: "Google Analytics", // Renseignez ici le nom du cookie ou du service en question, c’est un label qui sera affiché au client et qui doit être clair et explicite
         description: "Nous utilisons ce genre de cookie pour blablabla et c’est utile", // Ce champ est facultatif et permet d’expliquer en quoi sert ce cookie.
         link: "https://marketingplatform.google.com/about/analytics/terms/fr/", // Ce champ est facultatif et permet de rediriger l’utilisateur vers la politique du service en question
-        category: window.Hagreed.CategoryEnum.NECESSARY // Déterminez de quelle nature est ce cookie : NECESSARY ? STATISTIQUES ? MARKETING ? DIVERS ? PREFERENCES ?
+        category: CategoryEnum.NECESSARY // Déterminez de quelle nature est ce cookie : NECESSARY ? STATISTIQUES ? MARKETING ? DIVERS ? PREFERENCES ?
     },
 ];
 
